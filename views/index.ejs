@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+     <head>
+          <title>Note</title>
+          <!-- Latest compiled and minified CSS -->
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+          <!-- jQuery library -->
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+          <!-- Latest compiled JavaScript -->
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+     </head>
+     <body>
+          <div class="container text-center shadow mt-5">
+               <h1>Welcome See your Notes!</h1><br><br>
+               <div class="col">
+                    <form action="/" method="POST">
+                         <h3>Add a Note here ...</h3><br><br>
+                         <textarea  id="note"  name="note" rows="5" cols="50" >Add everyday notes</textarea><br><br>
+                         <input type="submit" class="btn btn-primary">
+                    </form>
+               </div>
+               <br><br>
+               <div class="d-flex flex-row flex-wrap">
+                    <% for(var i = 0;i<result.length;i++) {%>
+                         <div class="col-6">
+                              <div class="card shadow-lg" >
+                                   <div class="card-body">
+                                   <h5 class="card-title">Note <%= i+1 %></h5>
+                                   <p class="card-text"><%= result[i].note %></p>
+                                   <div class="row">
+                                        <div class="col-sm-4"><a href="/edit/<%= result[i].id %>" class="btn btn-warning">Edit</a></div>
+                                        <div class="col-sm-4"></div>
+                                        <div class="col-sm-4"><a href="/delete/<%= result[i].id %>" class="btn btn-danger">Delete</a></div>
+                                   </div>
+                                   </div>
+                              </div>
+                              <br>
+                         </div>
+                         <br><br>
+                    <%}%>
+               </div>
+               <br><br>
+          </div>
+     </body>
+     
+</html>
